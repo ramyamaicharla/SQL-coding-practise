@@ -1,0 +1,102 @@
+use PRACISE
+
+CREATE TABLE cust
+(
+    cid INT PRIMARY KEY,
+    f_name VARCHAR(30),
+    l_name VARCHAR(30),
+    age INT,
+    gender VARCHAR(10),
+    city VARCHAR(30),
+    salary DECIMAL(10,2),
+    department VARCHAR(30),
+    joining_date DATE,
+    email VARCHAR(50)
+);
+
+
+INSERT INTO cust
+VALUES
+(101,'Rahul','Sharma',25,'Male','Hyderabad',45000,'IT','2023-01-15','rahul@gmail.com'),
+
+(102,'Priya','Reddy',28,'Female','Chennai',55000,'HR','2022-08-20','priya@gmail.com'),
+
+(103,'Amit','Verma',32,'Male','Mumbai',70000,'Finance','2021-06-10','amit@gmail.com'),
+
+(104,'Sneha','Patel',26,'Female','Bangalore',48000,'Marketing','2023-04-18','sneha@gmail.com'),
+
+(105,'Kiran','Kumar',35,'Male','Hyderabad',85000,'IT','2020-12-05','kiran@gmail.com'),
+
+(106,'Anjali','Singh',29,'Female','Delhi',62000,'Sales','2022-11-25','anjali@gmail.com'),
+
+(107,'Vikram','Naidu',41,'Male','Pune',92000,'Admin','2019-09-12','vikram@gmail.com'),
+
+(108,'Pooja','Joshi',24,'Female','Chennai',40000,'HR','2024-02-14','pooja@gmail.com'),
+
+(109,'Arjun','Rao',38,'Male','Hyderabad',78000,'Finance','2021-03-08','arjun@gmail.com'),
+
+(110,'Meena','Iyer',31,'Female','Mumbai',68000,'IT','2020-07-19','meena@gmail.com');
+
+select*from cust
+
+--creating tables database :- 
+--=====================
+ CREATE TABLE <tabname>
+ (
+    colname datatype(size) ,
+    colname datatype(size),
+    ------------------
+  );
+
+  ---syntax
+  SELECT col1,col2,col3,-----   /   *   FROM tabname
+
+--BASIC SELECT COMMAND
+
+1.Display all columns from the cust table.
+    select*from cust
+
+2.Display only the first name of all customers.
+   select f_name from cust
+
+3.Display the first name and city of all customers.
+   select f_name,city from cust
+
+4.Display the salary and department of every customer
+   select salary,department from cust
+
+5.Display the email addresses of all customers.
+   select email from cust
+
+6.Display the joining date of every customer.
+   select joining_date from cust
+
+7.Display the customer ID, first name, and last name.
+   select cid,f_name,l_name from cust
+
+8.Display all records from the table.
+   select *from cust
+
+9.Display only the city column.
+   select city from cust
+
+10.Display only the department column.
+   select department from cust
+
+11.Display customer ID, first name, city, and salary.
+   select cid,f_name,city,salary from cust
+
+12.Display first name, email, salary, and department.
+  select f_name,email,salary,department from cust
+
+13.Display first name, last name, age, and gender.
+  select f_name,l_name,age,gender from cust
+
+14.Display city, gender, and age.
+  select city,gender,age from cust
+
+15.Display first name, department, and joining date.
+  select f_name,department,joining_date from cust
+
+
+
