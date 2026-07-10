@@ -1,0 +1,107 @@
+---DDL Commands---
+CREATE
+ALTER
+DROP
+TRUNCATE
+=> all DDL commands acts on table structure (columns,datatype and size)
+ 
+1.CREATE:-
+============
+create table student(
+  cid primary key,
+  name varchar(50),
+  gendre char(1),
+  city varchar(50),
+  age int,
+)
+
+
+2.ALTER:-
+===============
+
+1.Add a column phone to the cust table
+  alter table cust add phone varchar(15);
+
+2.Add a column address of type VARCHAR(100)
+  alter table cust 
+  alter column salary decimal(12,2)
+
+3.Change the data type of salary to DECIMAL(12,2)
+  alter table cust
+  alter column salary decimal(12,2)
+
+4.Increase the length of f_name to VARCHAR(50)
+ alter table cust
+ alter column f_name varchar(50)
+
+5. Rename the column city to location
+ exec sp_rename 'cust.city','location','column';
+
+6.Rename the table cust to customer
+ exec sp_rename 'cust','customer'
+
+7.Drop the email column
+alter table cust drop column email
+
+8. Add a UNIQUE constraint to the email column.
+ alter table cust
+ add constraint uq_cust_email unique(email);
+
+9. Add a CHECK constraint to ensure age >= 18
+ alter table cust
+ add constraint chk_cust_age
+ check (age>=18);
+
+10. Add a DEFAULT value of 'India' to the country column.
+  ALTER TABLE cust
+ADD country VARCHAR(50)
+CONSTRAINT DF_cust_country DEFAULT 'India';
+
+11. Remove the DEFAULT constraint from the country column.
+  ALTER TABLE cust
+  DROP CONSTRAINT DF_cust_country;
+
+12. Add a NOT NULL constraint to department
+  alter table cust
+  alter column department  varchar(50) not null;
+
+13.Remove the NOT NULL constraint from department
+ alter table cust 
+ alter column department  varchar(50) not null;
+
+ 14.Add a new column bonus with a default value of 0.
+ alter table cust
+ add bonus decimal(10,2)
+ constraint df_cust_bonus default 0;
+
+15. Rename the column joining_date to hire_date.
+ exec sp_rename 'cust.joining_date', 'hire_date', 'COLUMN';
+
+
+
+ -- Add a column
+ALTER TABLE table_name
+ADD column_name datatype;
+
+-- Modify a column
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype;
+
+-- Drop a column
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+-- Add a constraint
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name ...;
+
+---DROP 
+drop table cust
+drop table student
+drop table employee
+
+
+---TRUNCATE
+ truncate table employee
+ truncate table student
+ truncate table employee
