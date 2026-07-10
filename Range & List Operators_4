@@ -1,0 +1,74 @@
+Range & List Operators
+✅ IN
+✅ NOT IN
+✅ BETWEEN
+✅ NOT BETWEEN
+
+--IN / NOT IN
+--it is used to list comaparision
+
+-1.Display customers from Hyderabad, Chennai, and Mumbai.
+  select*from cust where city in ('Hyderabad','Chennai','Mumbai')
+
+-2.Display customers working in IT, HR, or Sales.
+  select*from cust where department in ('it','hr','sales')
+
+-3.Display customers whose age is 25, 30, or 35.
+  select*from cust where age in (25,30,35)
+
+-4.Display customers whose salary is 40000, 50000, or 60000.
+  select*from cust where salary in (40000,50000,60000)
+
+-5.Display customers whose customer ID is 101, 103, or 105.
+   select*from cust where cid in (101,103,105)
+
+-6.Display customers NOT from Hyderabad or Chennai.
+   select*from cust where city not in ('Hyderabad','Chennai')
+
+-7.Display customers NOT working in HR or Sales.
+   select*from cust where department not in ('hr','sales')
+
+-8.Display customers whose age is NOT 25, 30, or 35.
+   select*from cust where age not in (25,30,35)
+
+-9.Display customers whose salary is NOT 50000 or 70000.
+  select*from cust where salary not in (50000,70000) 
+
+-10.Display customers NOT from Delhi, Pune, or Bangalore.
+ select*from cust where city not in ('Delhi','Pune','Bangalore')
+
+
+--BETWEEN
+-- use between operator for range comparision
+-1.Display customers whose age is between 20 and 30.
+    select*from cust where age between 20 and 30 
+
+-2.Display customers whose salary is between 30000 and 60000.
+   select*from cust where salary between 30000 and 60000
+
+-3.Display customers who joined between '2022-01-01' and '2023-12-31'.
+  select*from cust where joining_date between '2022-01-01' and '2023-12-31'
+
+-4.Display customers whose customer ID is between 100 and 120.
+  select*from cust where cid not between 100 and 120
+
+-5.Display customers whose age is between 25 and 40.
+   select*from cust where age not between 25 and 40
+
+-6.Display customers whose salary is between 50000 and 100000.
+   select*from cust where salary between 50000 and 100000
+
+-7.Display customers who joined between January and June 2023.
+  select*from cust where joining_date between '2023-01-01' AND '2023-06-30'
+
+-8.Display customers whose IDs are between 200 and 250.
+   select*from cust where cid not between 200 and 250
+
+-9.Display customers aged between 30 and 35.
+   select*from cust where age between 30 and 35
+
+-10.Display customers earning between 40000 and 45000.
+   select*from cust where salary between 40000 and 45000
+
+
+
