@@ -1,0 +1,119 @@
+-- Sorting & Removing Duplicates
+✅ ORDER BY
+✅ DISTINCT
+
+✅ ORDER BY:
+--order by clause is used to sort the table date.
+--sorting is based on one or more columns
+--we can sort either in ascending order in descending order.
+--default sort order is ascending order
+
+-1.Display all customers ordered by first name.
+   select*from cust order by f_name
+
+-2.Display customers ordered by salary (ascending).
+  select*from cust order by salary asc
+
+-3.Display customers ordered by salary (descending).
+  select*from cust order by salary desc
+
+-4.Display customers ordered by age.
+  select*from cust order by age
+
+-5.Display customers ordered by city.
+  select*from cust order by city
+
+-6.Display customers ordered by department.
+  select*from cust order by department
+
+-7.Display customers ordered by joining date.
+  select*from cust order by joining_date
+
+-8.Display customers ordered by last name.
+   select*from cust order by l_name
+
+-9.Display customers ordered by age descending.
+  select*from cust order by age desc
+
+-10.Display customers ordered by salary descending.
+   select*from cust order by salary desc
+
+-11.Display customers ordered by city ascending.
+  select f_name,l_name,age,salary from cust order by city desc
+
+-12.Display customers ordered by department descending.
+  select f_name,cid,age from cust order by department desc
+
+-13.Display customers ordered by first name and last name.
+  select*from cust order by f_name desc,l_name asc
+
+-14.Display customers ordered by city and salary.
+ select*from cust where city in ('hyderabad','pune','chennai') order by city,salary
+
+-15.Display customers ordered by department and age.
+ select*from cust order by department,age 
+
+
+2.✅ DISTINCT
+---------------
+--distinct clause is used to eliminate the duplicates from the select query output
+
+-1.Display all unique cities.
+  select distinct city from cust 
+
+-2.Display all unique departments.
+  select distinct departments from cust
+
+-3.Display all unique ages.
+  select distinct age from cust
+
+-4.Display all unique salaries.
+  select distinct salary from cust
+
+-5.Display all unique genders.
+  select distinct gender from cust
+
+-6.Display all unique joining dates.
+  select distinct  joining_adte from cust
+
+-7.Display all unique first names.
+  select distinct f_name from cust
+
+-8.Display all unique last names.
+   select distinct l_name from cust
+
+-9.Display unique city and department combinations.
+  select distinct city,department  from cust
+
+-10.Display unique salary values.
+  select distinct salary from cust
+
+-11.Display unique ages greater than 30.
+  select distinct age from cust where age>30;
+
+-12.Display unique departments in ascending order.
+  select distinct department from cust order by department asc
+
+-13.Display unique cities in descending order.
+  select distinct city from cust order by city desc
+
+-14.Display unique genders.
+  select distinct gender from cust
+
+-15.Display unique email domains.
+  select distinct email from cust
+
+-16.Display unique joining years.
+  select distinct year (joining_date) as joinig_year from cust
+
+-17.Display unique customer IDs.
+   select distinct cid from cust
+
+-18.Display unique cities where salary is greater than 50000.
+   select distinct city from cust where salary>50000
+
+-19.Display unique departments where age is greater than 30.
+   select distinct department from cust where age>30
+
+-20.Display unique city and gender combinations.
+   select distinct city,gender from cust 
