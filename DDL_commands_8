@@ -1,0 +1,306 @@
+DML commands :- (Data Manipulation Lang)
+========================================
+1 INSERT 
+2 UPDATE 
+3 DELETE 
+4 MERGE
+
+1.✅ INSERT :
+=============
+1.Insert a new customer with all column values.
+  insert into cust values(111,'Rams','Sharma',25,'Male','Hyderabad',49000,'IT','2026-01-25','rams@gmail.com')
+ 
+2.Insert a customer by specifying only cid, f_name, city, and salary.
+   INSERT INTO cust (cid, f_name, city, salary)
+    VALUES (112, 'Sita', 'Vizag', 26000);
+
+3.Insert a customer whose department is IT.
+    INSERT INTO cust
+    VALUES
+    (113, 'Kiran', 'Reddy', 27, 'Male', 'Hyderabad', 45000, 'IT', '2025-03-15', 'kiran@gmail.com');
+
+ 
+4.Insert a female customer from Hyderabad.
+  INSERT INTO cust
+  VALUES
+(114, 'Anusha', 'Reddy', 24, 'Female', 'Hyderabad', 42000, 'HR', '2025-06-20', 'anusha@gmail.com');
+
+5.Insert a customer with a salary of 75000.
+  INSERT INTO cust
+  VALUES
+(115, 'Rohan', 'Kumar', 30, 'Male', 'Chennai', 75000, 'Finance', '2025-08-10', 'rohan@gmail.com');
+
+
+2 UPDATE:
+=========
+UPDATE table_name
+SET column1 = value1,
+    column2 = value2
+WHERE condition;
+
+
+1. Update the salary of customer 101 to 60000.
+   update cust set salary=60000 where cid=101
+
+2. Update the city of customer 105 to Bangalore.
+   update cust set city='Bangalore' where cid=105
+
+3. Increase the salary of all employees by 5000.
+   update cust set salary=salary+5000 
+
+4.Update the department of all employees from HR to Human Resources.
+  update cust set department='Human Resources'
+  where department='hr'
+
+5. Update the email of customer 103.
+ update cust set email='amit123@gmail.com'
+ where cid=103
+
+6. Update the age of customer 108 to 30.
+ update cust set age=30 where cid=108
+
+7.Change the city from Hyderabad to Secunderabad.
+  update cust set city='Secunderabad'
+  where city='Hyderabad'
+
+8.Update both salary and department of customer 110.
+  update cust set salary=80000,department='finance'
+  where cid=110
+
+9.Update the joining date of customer 102
+ update cust set joining_date='2025-01-15'
+  where cid=102
+
+10.Update all employees in the Sales department by increasing their salary by 10%.
+ update cust set salary=salary+(salary*10/100)
+where department='sales'
+
+
+3 DELETE:
+===============
+
+1.Delete the customer whose ID is 101.
+ delete from cust where cid=101
+
+2.Delete all customers from Hyderabad.
+  delete from cust;
+
+3.Delete customers whose salary is less than 40000.
+  delete from cust where salary<40000
+
+4.Delete all employees in the HR department.
+  delete from cust where department='hr' 
+
+5.Delete customers whose age is greater than 60.
+  delete from cust where age>60
+
+6.Delete the customer whose email is NULL.
+  delete from cust where email is null 
+
+7.Delete customers who joined before 2021-01-01.
+  delete from cust where joining_date='2021-01-01'
+
+8.Delete all female customers.
+  delete from cust where gender='female'
+
+9.Delete customers whose city is Chennai and department is HR.
+   delete from cust where city='Chennai' and department='hr'
+
+10.Delete all records from the cust table.
+    delete from cust
+
+
+✅ MERGE (10 Questions)
+===========================
+--syntax
+MERGE target_table AS t
+USING source_table AS s
+ON t.id = s.id
+
+WHEN MATCHED THEN
+UPDATE SET ...
+
+WHEN NOT MATCHED THEN
+INSERT (...)
+
+WHEN NOT MATCHED BY SOURCE THEN
+DELETE;
+
+1.Merge cust_new into cust by matching cid.
+
+  merge cust as c
+  using new_cust as cn
+  on c.cid=cn.cid
+
+2.Update salary in cust if the matching customer exists in cust_new.
+  
+  merge cust as c
+  using cust_new as cn
+  on c.cid=cn.cid
+  when matched then
+  update set c.salary=cn.salary
+
+3.Insert new customers from cust_new if they dont exist in cust.
+    
+ MERGE cust AS c
+USING cust_new AS cn
+ON c.cid = cn.cid
+WHEN NOT MATCHED THEN
+INSERT
+VALUES
+(
+    cn.cid,
+    cn.f_name,
+    cn.l_name,
+    cn.age,
+    cn.gender,
+    cn.city,
+    cn.salary,
+    cn.department,
+    cn.joining_date,
+    cn.email
+);
+
+4.Update city and department when customer IDs match.
+ MERGE cust AS c
+USING cust_new AS cn
+ON c.cid = cn.cid
+WHEN MATCHED THEN
+UPDATE SET
+c.city = cn.city,
+c.department = cn.department;
+
+5.Update salary and email when records match.
+ MERGE cust AS c
+USING cust_new AS cn
+ON c.cid = cn.cid
+WHEN MATCHED THEN
+UPDATE SET
+c.salary = cn.salary,
+c.email = cn.email;
+
+6.Insert all new customers from cust_new.
+ MERGE cust AS c
+USING cust_new AS cn
+ON c.cid = cn.cid
+WHEN NOT MATCHED THEN
+INSERT
+VALUES
+(
+    cn.cid,
+    cn.f_name,
+    cn.l_name,
+    cn.age,
+    cn.gender,
+    cn.city,
+    cn.salary,
+    cn.department,
+    cn.joining_date,
+    cn.email
+);
+
+7.Delete customers from cust that are not present in cust_new.
+ MERGE cust AS c
+USING cust_new AS cn
+ON c.cid = cn.cid
+WHEN NOT MATCHED BY SOURCE THEN
+DELETE;
+
+8.Synchronize cust with cust_new using MERGE.
+   MERGE cust AS c
+USING cust_new AS cn
+ON c.cid = cn.cid
+WHEN MATCHED THEN
+UPDATE SET
+c.salary = cn.salary,
+c.city = cn.city
+
+WHEN NOT MATCHED THEN
+INSERT
+VALUES
+(
+    cn.cid,
+    cn.f_name,
+    cn.l_name,
+    cn.age,
+    cn.gender,
+    cn.city,
+    cn.salary,
+    cn.department,
+    cn.joining_date,
+    cn.email
+)
+
+WHEN NOT MATCHED BY SOURCE THEN
+DELETE;
+
+9.Update all matching records and insert non-matching records.
+
+   MERGE cust AS c
+USING cust_new AS cn
+ON c.cid = cn.cid
+
+WHEN MATCHED THEN
+UPDATE SET
+c.f_name = cn.f_name,
+c.l_name = cn.l_name,
+c.age = cn.age,
+c.gender = cn.gender,
+c.city = cn.city,
+c.salary = cn.salary,
+c.department = cn.department,
+c.joining_date = cn.joining_date,
+c.email = cn.email
+
+WHEN NOT MATCHED THEN
+INSERT
+VALUES
+(
+    cn.cid,
+    cn.f_name,
+    cn.l_name,
+    cn.age,
+    cn.gender,
+    cn.city,
+    cn.salary,
+    cn.department,
+    cn.joining_date,
+    cn.email
+);
+
+10.Perform a complete MERGE with UPDATE, INSERT, and DELETE actions.
+    MERGE cust AS c
+USING cust_new AS cn
+ON c.cid = cn.cid
+
+WHEN MATCHED THEN
+UPDATE SET
+c.f_name = cn.f_name,
+c.l_name = cn.l_name,
+c.age = cn.age,
+c.gender = cn.gender,
+c.city = cn.city,
+c.salary = cn.salary,
+c.department = cn.department,
+c.joining_date = cn.joining_date,
+c.email = cn.email
+
+WHEN NOT MATCHED THEN
+INSERT
+VALUES
+(
+    cn.cid,
+    cn.f_name,
+    cn.l_name,
+    cn.age,
+    cn.gender,
+    cn.city,
+    cn.salary,
+    cn.department,
+    cn.joining_date,
+    cn.email
+)
+
+WHEN NOT MATCHED BY SOURCE THEN
+DELETE;
+
