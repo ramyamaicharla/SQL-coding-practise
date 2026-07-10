@@ -99,4 +99,74 @@ select*from cust
   select f_name,department,joining_date from cust
 
 
+-SELECT with Expressions
+
+- 1.Display the salary increased by 5000.
+   select salary,salary+5000 as [incresed sal] from cust
+
+- 2.Display the salary increased by 10%.
+    select salary+(salary*0.10)as incresed_sal from cust
+
+- 3.Display the annual salary (salary × 12).
+    select salary,salary*12 as annaual_sal from cust
+
+- 4.Display age after adding 5 years.
+   select age,age+5 from cust
+
+- 5.Display salary minus 2000.
+   select salary,salary-2000 from cust
+
+- 6.Display salary multiplied by 2.
+   select salary,salary*2 from cust
+
+- 7.Display half of the salary.
+   select salary,salary/2 from cust
+
+- 8.Display age multiplied by 2.
+   select age,age*2 from cust
+
+- 9.Display salary + bonus (bonus = 10000).
+    select salary,salary+10000 from cust
+
+- 10.Display salary after deducting 5%.
+    select salary-(salary*0.05) from cust
+
+
+-- Challenge Questions---
+
+-- 1. Display the customer's full details.
+     select*from cust
+
+-- 2.Display only salary and annual salary together.
+    select salary,salary*12 as annual_salary from cust
+
+--3.Display first name, salary, and increased salary (salary + 5000).
+    select f_name,salary,salary+5000 as incresed_salary from cust
+
+--4.Display age and age after 10 years 
+   select age,age+10 as new_year from cust
+
+--5.Display customer ID and monthly salary.
+   select cid,salary as monthly_salary from cust
+
+
+--6.Display salary, annual salary, and double salary.
+   select salary,salary*12 as annl_sal,salary*2 as double_sal from cust
+
+
+--7.Display first name and current year salary (salary × 12).
+   select f_name,salary*12 AS Current_Year_Salary from cust
+
+
+--8.Display customer ID and joining year (using only the joining_date column).
+   select cid,year(joining_date) as joining_year from cust
+
+--9.Display customer ID, city, and department.
+   select cid,city,department from cust
+
+--10.Display all columns using a single SELECT statement.
+    select *from cust
+
+
+
 
