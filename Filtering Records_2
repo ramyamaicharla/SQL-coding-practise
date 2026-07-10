@@ -1,0 +1,129 @@
+-----WHERE CLAUSES-----
+ where clause is used to filter the rows based on the condition.
+   
+- 1.Display all customers whose age is greater than 25
+   select*from cust where age>25
+
+-2.Display customers whose salary is greater than 50000.
+   select *from cust where salary>50000
+
+-3.Display customers who live in Hyderabad.
+   select*from cust where city='Hyderabad'
+
+-4.Display employees working in the IT department.
+  select*from cust where department ='it'
+
+-5.Display customers whose age is less than 30.
+  select*from cust where age<30
+
+-6.Display customers whose salary is less than 40000.
+   select*from cust where salary <40000
+
+-7.Display female customers.
+   select*from where gender='female'
+
+-8.Display male customers.
+   select*from where gender='male'
+
+-9.Display customers whose age is equal to 35.
+   select*from cust where age=35
+
+-10.Display customers whose salary is equal to 60000.
+   select*from cust where salary=60000
+
+-11.Display customers who joined on '2023-01-15'.
+   select*from cust where joining_date='2023-01-15'
+
+-12.Display customers whose first name is 'Rahul'.
+   select*from cust where f_name='Rahul'
+
+-13.Display customers whose last name is 'Sharma'.
+   select*from cust where l_name='Sharma'
+
+-14.Display customers whose city is 'Chennai'.
+   select*from cust where city='Chennai'
+
+-15.Display customers whose department is 'HR'.
+  select*from cust where department='hr'
+
+-16.Display customers whose age is greater than 40. 
+  select*from cust where age>=40
+
+-17.Display customers whose salary is greater than 100000.
+  select*from cust where salary>=100000
+
+-18.Display customers whose customer ID is 105.
+  select*from cust where cid=105
+
+-19.Display customers whose email is 'abc@gmail.com'.
+  select*from cust where email='abc@gmail.com'
+
+-20.Display customers whose city is 'Mumbai'.
+  select*from cust where city='Mumbai'
+
+
+--COMPOUND CONDITIONS
+-- AND / OR / NOT (20 Questions)
+-- multiple conditions combined with AND/OR operators called Compound conditions
+--AND=both conditons are true
+--OR= only one condition or both conditions are true.
+
+- 1.Display customers whose age is greater than 25 AND salary is greater than 50000.
+   select*from cust where age>25 and salary>50000
+
+-2.Display customers from Hyderabad AND IT department.
+  select*from cust where city='Hyderabad' and department='it'
+
+-3.Display customers whose age is less than 30 AND gender is Female.
+  select*from cust where age<30 and gender='female'
+
+-4.Display customers whose salary is greater than 40000 AND city is Chennai.
+   select*from cust where salary>40000 and city='Chennai'
+
+-5.Display customers whose department is HR AND salary is less than 60000.
+  select*from cust where department='hr' and salary<60000
+
+-6.Display customers whose city is Hyderabad OR Chennai.
+  select*from cust where city='Hyderabad' OR city='Chennai'
+
+-7.Display customers whose department is IT OR HR.
+  select*from cust where department='IT' OR department='HR'
+
+-8.Display customers whose salary is greater than 70000 OR age is less than 25.
+  select*from cust where salary>70000 or age<25
+
+-9.Display male OR female customers from Delhi.
+   select male,female from cust where city='Delhi'
+
+-10.Display customers whose city is Mumbai OR salary is greater than 80000.
+   select*from cust where city='Mumbai' or salary>80000
+
+-11.Display customers NOT from Hyderabad.
+   select*from cust where not city='Hyderabad'
+
+-12.Display customers NOT working in IT.
+   select*from cust where not department='it'
+
+-13.Display customers whose salary is NOT greater than 50000.
+   select*from cust where not salary>50000
+
+-14.Display customers whose age is NOT less than 30.
+  select*from cust where  not age<30
+
+-15.Display customers who are NOT Female.
+ select*from cust where not gender='female'
+
+-16.Display customers from Chennai AND salary greater than 50000.
+  select*from cust where city='Chennai' and salary>50000
+
+-17.Display customers from Delhi OR Pune.
+ select*from cust where city='Delhi'or city='pune'
+
+-18.Display customers whose age is greater than 35 AND department is Sales.
+  select*from cust where age>35 and department='sales'
+
+-19.Display customers NOT from Bangalore.
+  select*from cust where not city='Bangalore'
+
+-20.Display customers whose salary is greater than 60000 AND city is Mumbai.
+  select*from cust where salary>60000 and city='Mumbai'
