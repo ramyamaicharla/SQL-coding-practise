@@ -1,0 +1,40 @@
+Pattern Matching
+✅ LIKE
+✅ Wildcards (%, _)
+
+ -- LIKE OPERATOR
+ --use like operator for pattren comaprision
+
+-1.Display customers whose first name starts with 'A'.
+  select*from cust where f_name like 'A%'
+
+-2.Display customers whose first name ends with 'a'.
+  select*from cust where f_name like '%a'
+
+-3.Display customers whose first name contains 'an'.
+  select*from cust where f_name like 'an%'
+
+-4.Display customers whose city starts with 'H'.
+  select*from cust where city like'h%'
+
+-5.Display customers whose city ends with 'i'.
+   select*from cust where city like '%i'
+
+-6.Display customers whose department starts with 'S'.
+   select*from cust where department not like 's%'
+
+-7.Display customers whose last name contains 'ra'.
+   select*from cust where l_name like '%ra'
+
+-8.Display customers whose email ends with '.com'.
+   select*from cust where email like '%.com'
+
+-9.Display customers whose email starts with 'r'.
+   select*from cust where email not like '%r'
+
+-10.Display customers whose first name has exactly 5 letters.
+    select*from cust where f_name like '_____'
+
+    select*from cust where joining_date like '2020%'
+    select*from cust where f_name like '%[aeiou]%'
+    select*from cust where joining_date like '_____03___'
