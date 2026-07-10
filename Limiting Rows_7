@@ -1,0 +1,65 @@
+ - Limiting Rows
+✅ TOP (SQL Server)
+✅ OFFSET FETCH
+(MySQL: LIMIT)
+
+--1.✅ TOP (SQL Server):
+--top clause is used to return the top n rows
+
+
+| `TOP`                      | `OFFSET FETCH`                      |
+| -------------------------- | ----------------------------------- |
+| Returns the first `N` rows | Skips rows and returns the next set |
+| Best for simple queries    | Best for pagination                 |
+| Example: `TOP 10`          | Example: `OFFSET 10 FETCH NEXT 10`  |
+
+
+-1.Display the top 5 customers.
+  select top 5*from  cust
+
+-2.Display the top 10 customers.
+ select top 10*from cust
+
+-3.Display the top 3 highest-paid customers.
+ select top 3* from cust order by salary desc
+
+-4.Display the top 5 youngest customers.
+ select top 5* from cust order by age asc
+
+-5.Display the top 10 oldest customers.
+  select top 10* from cust order by  age desc
+
+-6.Display the top 2 customers from the IT department.
+  select top 2* from cust where department='it'
+
+-7.Display the top 5 customers ordered by joining date.
+  select top 5*from cust order by joining_date desc
+
+-8.Display the top 1 highest salary.
+  select top 1* from cust order by age desc
+
+-9.Display the top 7 customers from Hyderabad.
+  select top 7* from cust where city='Hyderabad'
+
+-10.Display the top 4 female customers.
+  select top 4* from cust where gender ='female'
+
+
+--2.OFFSET → Skips a specified number of rows.
+--FETCH NEXT → Returns the next specified number of rows.
+
+-1.Skip the first 5 rows and display the next 5 rows
+   select*from cust order by cid offset 5 rows fetch next 5 rows only
+
+-2.Display the first 5 records
+   select*from cust order by cid offset 0 rows fetch next 5 rows only
+
+-3.Display records 6 to 10
+   select*from cust order by cid offset 5 rows fetch next 5 rows only
+
+-4.Display records 11 to 15
+  select*from cust order by cid offset 10 rows fetch next 5 rows only
+
+-- Use TOP when you need the first N records.
+-- Use OFFSET FETCH when implementing pagination (page 1, page 2, page 3, etc.) 
+    in applications or websites.
