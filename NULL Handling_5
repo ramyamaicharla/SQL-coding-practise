@@ -1,0 +1,21 @@
+NULL Handling
+✅ IS NULL
+✅ IS NOT NULL
+
+-- IS NULL / IS NOT NULL Practice Questions
+--use is operator for null comparision
+
+-1.Display customers whose email is NULL.
+  select*from cust where email is null
+
+-2.Display customers whose department is NULL.
+  select*from cust where department is null
+
+-3.Display customers whose city is NOT NULL.
+  select*from cust where city is not null
+
+-4.Display customers whose joining date is NULL.
+  select*from cust where joining_date is null
+
+-5.Display customers whose salary is NOT NULL.
+  select*from cust where salary is not null
